@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Setup send button
     const sendBtn = document.getElementById('sendBtn');
-    sendBtn.addEventListener('click', handleSendMessage);
+    sendBtn.addEventListener('click', handleSendMessage(false));
     
     // Enable/disable send button based on input
     userInput.addEventListener('input', () => {
