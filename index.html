@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- KaTeX-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+    <!-- Code highlighting && pretty printing -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+    <!-- Charts and diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.0.0/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
+
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="chat-header">
+                <div class="branding">
+                    <i class="fas fa-robot"></i>
+                    <h1>AI Assistant</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="clear-chat" id="clearChat" aria-label="Clear chat">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div id="chatbox" class="chatbox">
+                <!-- Dynamically add msgs -->
+                <button id="scrollToBottom" class="scroll-btn">
+                    <i class="fas fa-arrow-down"></i>
+                </button>
+            </div>
+
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <div class="suggestion-chips">
+                        <button class="chip">Help me with coding</button>
+                        <button class="chip">Tell me a joke</button>
+                        <button class="chip">What can you do?</button>
+                    </div>
+                    
+                    <div class="input-box">
+                        <textarea
+                            id="userInput"
+                            rows="1"
+                            placeholder="Message AI Assistant..."
+                            aria-label="Message input"
+                            maxlength="32000">
+                        </textarea>
+                        <div class="input-actions">
+                            <button class="input-btn voice-btn" id="voiceBtn" aria-label="Voice input">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <button class="input-btn file-upload-btn" id="fileUploadBtn" aria-label="Upload file">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <input type="file" id="fileInput" hidden multiple />
+                            <button id="sendBtn" disabled>
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Send</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="char-counter">0/32000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>
